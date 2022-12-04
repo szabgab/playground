@@ -11,6 +11,7 @@ RUN apt-get update     && \
 RUN apt-get install -y ruby
 RUN apt-get install -y ruby-bundler
 RUN apt-get install -y git
+RUN apt-get install -y ack
 
 
 # Ruby bundler needed this? or just one of the Ruby packages?
