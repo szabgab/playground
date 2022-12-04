@@ -6,5 +6,6 @@ docker build -t mydocker .
 ```
 
 ```
-docker run -it --rm --workdir /opt -v$(pwd):/opt mydocker bash
+alias dr='docker run -it --rm --workdir /opt -v$(pwd):/opt mydocker bash'
+dr
 ```
