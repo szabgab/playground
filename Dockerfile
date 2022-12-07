@@ -14,5 +14,5 @@ RUN apt-get install -y git
 RUN apt-get install -y ack
 
 
-# Ruby bundler needed this? or just one of the Ruby packages?
-# RUN git config --global --add safe.directory /opt
+# Ruby bundler needed this
+RUN git config --global --add safe.directory /opt
