@@ -13,6 +13,8 @@ RUN apt-get update                  && \
     apt-get install -y ruby-bundler && \
     echo DONE
 
+RUN apt-get install -y cpanminus
+RUN pip install pytest
 
 # Ruby bundler needed this
 RUN git config --global --add safe.directory /opt
