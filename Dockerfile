@@ -11,9 +11,15 @@ RUN apt-get update                  && \
     apt-get install -y ruby         && \
     apt-get install -y ruby-dev     && \
     apt-get install -y ruby-bundler && \
+    apt-get install -y libssl-dev   && \
+    apt-get install -y zlib1g-dev   && \
     echo DONE
 
-RUN apt-get install -y cpanminus
+# Perl
+RUN apt-get install -y cpanminus  && \
+    cpanm --notest Dist::Zilla
+
+# Python
 RUN pip install pytest
 
 # Ruby bundler needed this
