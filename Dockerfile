@@ -38,11 +38,48 @@ RUN apt-get install -y cpanminus                              && \
     cpanm --notest Dist::Zilla::Plugin::PruneCruft            && \
     cpanm --notest Dist::Zilla::Plugin::TestRelease           && \
     cpanm --notest Dist::Zilla::Plugin::UploadToCPAN          && \
+    cpanm --notest Dist::Zilla::Plugin::CheckChangeLog        && \
+    cpanm --notest Dist::Zilla::Plugin::ContributorsFile      && \
+    cpanm --notest Dist::Zilla::Plugin::Git::Contributors     && \
+    cpanm --notest Dist::Zilla::Plugin::GitHubREADME::Badge   && \
+    cpanm --notest Dist::Zilla::Plugin::PodWeaver             && \
+    cpanm --notest Dist::Zilla::Plugin::ReadmeAddDevInfo      && \
+    cpanm --notest Dist::Zilla::Plugin::ReadmeAnyFromPod      && \
+    cpanm --notest Dist::Zilla::Plugin::SyncCPANfile          && \
     cpanm --notest Devel::Cover                               && \
     echo DONE Perl installations
 
+# PHP
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+RUN apt-get install -y php-cli composer php-curl
+
 # Python
-RUN pip install pytest
+RUN pip install pytest pytest-random-order pytest-coverage pytest-xdist
+
 
 # Ruby bundler needed this
 RUN git config --global --add safe.directory /opt
+
+
+RUN apt-get -y install php-pear phpunit
+
+
+RUN cpanm --notest Module::Install  && \
+    cpanm --notest ExtUtils::MakeMaker::CPANfile  && \
+    cpanm --notest Data::GUID  && \
+    cpanm --notest Devel::StrictMode  && \
+    cpanm --notest MooX::Enumeration  && \
+    cpanm --notest MooX::ProtectedAttributes  && \
+    cpanm --notest MooX::Should  && \
+    cpanm --notest OpenTracing::Interface  && \
+    cpanm --notest OpenTracing::Types  && \
+    cpanm --notest Role::Declare::Should  && \
+    cpanm --notest Sub::Trigger::Lock  && \
+    cpanm --notest Test::Interface  && \
+    cpanm --notest Test::MockObject::Extends  && \
+    cpanm --notest Test::OpenTracing::Interface  && \
+    cpanm --notest Test::Time::HiRes && \
+    echo DONE
+
+
+
