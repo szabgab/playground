@@ -82,4 +82,14 @@ RUN cpanm --notest Module::Install  && \
     echo DONE
 
 
+RUN cpanm --notest HTTP::Response::Maker  && \
+    cpanm --notest Hash::Merge  && \
+    cpanm --notest MooX::Attribute::ENV  && \
+    cpanm --notest Test::JSON  && \
+    cpanm --notest Test::MockModule  && \
+    cpanm --notest Test::URI  && \
+    cpanm --notest Types::URI  && \
+    echo DONE
+
+
 
