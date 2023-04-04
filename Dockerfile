@@ -93,3 +93,12 @@ RUN cpanm --notest HTTP::Response::Maker  && \
 
 RUN cpanm --notest SPVM
 
+RUN cpanm --notest Class::Utils  && \
+    cpanm --notest Error::Pure  && \
+    cpanm --notest File::Object  && \
+    cpanm --notest IO::Barf  && \
+    cpanm --notest Pod::Example  && \
+    cpanm --notest Test::NoWarnings  && \
+    cpanm --notest Test::Output
+
+
