@@ -91,5 +91,5 @@ RUN cpanm --notest HTTP::Response::Maker  && \
     cpanm --notest Types::URI  && \
     echo DONE
 
-
+RUN cpanm --notest SPVM
 
