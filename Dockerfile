@@ -83,22 +83,22 @@ RUN cpanm --notest Module::Install  && \
 
 
 RUN cpanm --notest HTTP::Response::Maker  && \
-    cpanm --notest Hash::Merge  && \
-    cpanm --notest MooX::Attribute::ENV  && \
-    cpanm --notest Test::JSON  && \
-    cpanm --notest Test::MockModule  && \
-    cpanm --notest Test::URI  && \
-    cpanm --notest Types::URI  && \
+    cpanm --notest Hash::Merge            && \
+    cpanm --notest MooX::Attribute::ENV   && \
+    cpanm --notest Test::JSON             && \
+    cpanm --notest Test::MockModule       && \
+    cpanm --notest Test::URI              && \
+    cpanm --notest Types::URI             && \
+    cpanm --notest SPVM                   && \
+    cpanm --notest Class::Utils           && \
+    cpanm --notest Error::Pure            && \
+    cpanm --notest File::Object           && \
+    cpanm --notest IO::Barf               && \
+    cpanm --notest Pod::Example           && \
+    cpanm --notest Test::NoWarnings       && \
+    cpanm --notest Test::Output           && \
+    cpanm --notest Log::Any               && \
+    cpanm --notest Log::Log4perl          && \
+    cpanm --notest MooX::TypeTiny         && \
     echo DONE
-
-RUN cpanm --notest SPVM
-
-RUN cpanm --notest Class::Utils  && \
-    cpanm --notest Error::Pure  && \
-    cpanm --notest File::Object  && \
-    cpanm --notest IO::Barf  && \
-    cpanm --notest Pod::Example  && \
-    cpanm --notest Test::NoWarnings  && \
-    cpanm --notest Test::Output
-
 
