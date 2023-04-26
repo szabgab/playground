@@ -1,20 +1,21 @@
 FROM ubuntu:23.04
-RUN apt-get update                  && \
-    apt-get dist-upgrade -y         && \
-    apt-get install -y ack          && \
-    apt-get install -y git          && \
-    apt-get install -y jq           && \
-    apt-get install -y less         && \
-    apt-get install -y libgd-dev    && \
-    apt-get install -y pkg-config   && \
-    apt-get install -y python3      && \
-    apt-get install -y python3-pip  && \
-    apt-get install -y ruby         && \
-    apt-get install -y ruby-dev     && \
-    apt-get install -y ruby-bundler && \
-    apt-get install -y libssl-dev   && \
-    apt-get install -y vim          && \
-    apt-get install -y zlib1g-dev   && \
+RUN apt-get update                         && \
+    apt-get dist-upgrade -y                && \
+    apt-get install -y ack                 && \
+    apt-get install -y git                 && \
+    apt-get install -y jq                  && \
+    apt-get install -y less                && \
+    apt-get install -y libgd-dev           && \
+    apt-get install -y pkg-config          && \
+    apt-get install -y python3             && \
+    apt-get install -y python3-pip         && \
+    apt-get install -y python3-virtualenv  && \
+    apt-get install -y ruby                && \
+    apt-get install -y ruby-dev            && \
+    apt-get install -y ruby-bundler        && \
+    apt-get install -y libssl-dev          && \
+    apt-get install -y vim                 && \
+    apt-get install -y zlib1g-dev          && \
     echo DONE
 
 # Perl
@@ -57,7 +58,10 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 RUN apt-get install -y php-cli composer php-curl
 
 # Python
-RUN pip install pytest pytest-random-order pytest-coverage pytest-xdist
+RUN virtualenv -p python3 /venv   && \
+    . /venv/bin/activate     && \
+    pip install pytest pytest-random-order pytest-coverage pytest-xdist && \
+    echo ". /venv/bin/activate" >> /root/.bashrc
 
 
 # Ruby bundler needed this
