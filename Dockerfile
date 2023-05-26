@@ -20,6 +20,8 @@ RUN apt-get update                         && \
 
 # Perl
 RUN apt-get install -y cpanminus                              && \
+    cpanm --notest Data::Structure::Util                      && \
+    cpanm --notest DateTime::Format::ISO8601                  && \
     cpanm --notest Dist::Zilla                                && \
     cpanm --notest Dist::Zilla::Plugin::Config::Git           && \
     cpanm --notest Dist::Zilla::Plugin::ConfirmRelease        && \
@@ -51,6 +53,11 @@ RUN apt-get install -y cpanminus                              && \
     cpanm --notest Dist::Zilla::Plugin::SyncCPANfile          && \
     cpanm --notest Dist::Zilla::PluginBundle::Author::DOMM    && \
     cpanm --notest Devel::Cover                               && \
+    cpanm --notest JSON                                       && \
+    cpanm --notest MetaCPAN::Client                           && \
+    cpanm --notest Mock::Quick                                && \
+    cpanm --notest Perl::Critic                               && \
+    cpanm --notest Template                                   && \
     echo DONE Perl installations
 
 # PHP
